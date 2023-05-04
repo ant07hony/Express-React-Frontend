@@ -4,6 +4,7 @@ const headerImage = "https://media.istockphoto.com/photos/group-portrait-of-a-cr
 
 const navBrandImage = "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
 
+
 const Nav = (props) => {
     return (
         <nav className="nav-global">

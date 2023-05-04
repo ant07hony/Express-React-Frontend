@@ -3,7 +3,7 @@ import * as peopleAPI from "./people-api"
 export async function getPeople(){
     try {
         const data = await peopleAPI.index()
-        console.log(data)
+        // console.log(data)
         return data
     } catch (err) {
         console.log(err)
@@ -24,10 +24,30 @@ export async function createPerson(data){
 
 export async function getPerson(id){
     try {
-        const peopleData = await peopleAPI.detail(id)
+        const foundPerson = await peopleAPI.detail(id)
         // console.log('inside getPeople')
-        return peopleData
+        return foundPerson
     } catch (err) {
+        console.log(err)
+        throw new Error(err)
+    }
+}
+
+export async function deletePerson(id){
+    try {
+        const deletedPerson = await peopleAPI.destroy(id)
+        return deletedPerson
+    }catch(err){
+        console.log(err)
+        throw new Error(err)
+    }
+}
+
+export async function updatePerson(id, data){
+    try {
+        const updatedPerson = await peopleAPI.update(id, data)
+        return updatedPerson
+    }catch(err){
         console.log(err)
         throw new Error(err)
     }

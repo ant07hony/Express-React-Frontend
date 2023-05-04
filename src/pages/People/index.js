@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { getPeople, createPerson, getPerson } from "../../utilities/people-services"
+import { Link } from "react-router-dom"
 
 const People = (props) => {
 
@@ -29,10 +30,12 @@ const People = (props) => {
     const loaded = () => {
         return people?.map((person, idx) => {
             return (
-                <div key={idx}>
+                <div key={idx} className="person-card">
+                <Link to={`/people/${person._id}`}>
                     <h1>{person.name}</h1>
                     <img className="profile-image" src={person.image} />
                     <h3>{person.title}</h3>
+                    </Link>
                 </div>
             )
         })
